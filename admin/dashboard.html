@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Owner Admin Dashboard</title>
+  <meta name="description" content="Personal owner dashboard for products, sales, margins, and business information.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <div class="page-shell">
+    <section class="login-screen" id="loginScreen">
+      <div class="login-card">
+        <p class="eyebrow">Private Owner Access</p>
+        <h1>Personal Admin Control Room</h1>
+        <p class="lead">Sign in to manage your products, owner profile, images, sales reports, and net margin in one private dashboard.</p>
+
+        <form id="loginForm" class="login-form">
+          <label>
+            <span>Username</span>
+            <input id="username" name="username" type="text" autocomplete="username" placeholder="Enter your admin username" required>
+          </label>
+          <label>
+            <span>Password</span>
+            <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your admin password" required>
+          </label>
+          <button type="submit" class="primary-button">Unlock Dashboard</button>
+          <p class="login-hint">Use your private admin credentials to access product control, images, sales, and reporting.</p>
+          <p class="login-error" id="loginError" role="alert" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <main class="dashboard hidden" id="dashboardApp">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Owner Intelligence Panel</p>
+          <h1>Personal Admin Dashboard</h1>
+          <p class="lead compact">Track your products, update your information, review margins, and monitor business performance privately.</p>
+        </div>
+        <div class="topbar-actions">
+          <button id="loadSampleDataBtn" class="ghost-button" type="button">Load Demo Data</button>
+          <button id="logoutBtn" class="primary-button" type="button">Log Out</button>
+        </div>
+      </header>
+
+      <section class="hero-grid">
+        <article class="owner-card panel">
+          <div class="panel-head">
+            <div>
+              <p class="panel-label">Owner Profile</p>
+              <h2>Your business identity</h2>
+            </div>
+            <span class="status-badge">Private Mode</span>
+          </div>
+
+          <div class="owner-card-body">
+            <img id="ownerPreview" class="owner-avatar" src="../img123.jpeg" alt="Owner preview">
+            <div class="owner-copy">
+              <h3 id="ownerNameDisplay">Your Name</h3>
+              <p id="ownerRoleDisplay">Founder / Owner</p>
+              <p id="ownerBioDisplay">Add your profile summary, ownership goals, and brand story here.</p>
+              <div class="mini-meta">
+                <span id="ownerEmailDisplay">yourname@email.com</span>
+                <span id="ownerPhoneDisplay">+91 00000 00000</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel spotlight-panel">
+          <div class="panel-head">
+            <div>
+              <p class="panel-label">Business Snapshot</p>
+              <h2>Performance today</h2>
+            </div>
+          </div>
+          <div class="spotlight-stats" id="summaryCards"></div>
+        </article>
+      </section>
+
+      <section class="analytics-grid">
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="panel-label">Sales Report</p>
+              <h2>Revenue and margin view</h2>
+            </div>
+          </div>
+          <div class="report-grid" id="reportCards"></div>
+          <div class="chart-panel">
+            <div class="chart-head">
+              <h3>Monthly sales trend</h3>
+              <p>Your manual monthly inputs are visualized here.</p>
+            </div>
+            <div class="chart-bars" id="salesChart"></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="panel-label">Special Access</p>
+              <h2>Publishing and verification</h2>
+            </div>
+          </div>
+          <ul class="checklist" id="ownerChecklist"></ul>
+          <div class="access-links">
+            <a class="ghost-button inline-action" href="../product.html" target="_blank" rel="noreferrer">Open Product Page</a>
+            <a class="ghost-button inline-action" href="../index.html#categories" target="_blank" rel="noreferrer">Open Categories</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="editor-grid">
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="panel-label">Owner Settings</p>
+              <h2>Personal information</h2>
+            </div>
+          </div>
+          <form id="ownerForm" class="stack-form">
+            <label><span>Owner name</span><input name="name" type="text" placeholder="Your full name"></label>
+            <label><span>Role / title</span><input name="role" type="text" placeholder="Founder, Owner, CEO"></label>
+            <label><span>Email</span><input name="email" type="email" placeholder="you@example.com"></label>
+            <label><span>Phone</span><input name="phone" type="text" placeholder="+91 98765 43210"></label>
+            <label><span>Profile image URL</span><input name="image" type="url" placeholder="https://example.com/your-photo.jpg"></label>
+            <label><span>Bio / summary</span><textarea name="bio" rows="4" placeholder="Add your personal business profile, goals, and ownership details."></textarea></label>
+            <button type="submit" class="primary-button">Save Owner Details</button>
+          </form>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="panel-label">Business Inputs</p>
+              <h2>Sales and finance details</h2>
+            </div>
+          </div>
+          <form id="reportForm" class="stack-form">
+            <label><span>Weekly sales amount</span><input name="weeklySales" type="number" min="0" step="0.01" placeholder="120000"></label>
+            <label><span>Monthly sales amount</span><input name="monthlySales" type="number" min="0" step="0.01" placeholder="550000"></label>
+            <label><span>Yearly sales amount</span><input name="yearlySales" type="number" min="0" step="0.01" placeholder="6600000"></label>
+            <label><span>Weekly orders</span><input name="weeklyOrders" type="number" min="0" step="1" placeholder="42"></label>
+            <label><span>Monthly orders</span><input name="monthlyOrders" type="number" min="0" step="1" placeholder="180"></label>
+            <label><span>Yearly orders</span><input name="yearlyOrders" type="number" min="0" step="1" placeholder="2100"></label>
+            <label><span>Monthly expenses</span><input name="monthlyExpenses" type="number" min="0" step="0.01" placeholder="180000"></label>
+            <label><span>Net margin (%)</span><input name="netMargin" type="number" min="0" max="100" step="0.01" placeholder="24"></label>
+            <label><span>Top channel</span><input name="topChannel" type="text" placeholder="Instagram, Website, Marketplace"></label>
+            <label><span>Owner note</span><textarea name="note" rows="4" placeholder="Add strategy notes, daily targets, or important business reminders."></textarea></label>
+            <button type="submit" class="primary-button">Save Report Details</button>
+          </form>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <p class="panel-label">Product Manager</p>
+            <h2>Add product details and images</h2>
+          </div>
+        </div>
+        <form id="productForm" class="product-form">
+          <label><span>Product name</span><input name="name" type="text" placeholder="Luxury Travel Organizer" required></label>
+          <label><span>Category</span><input name="category" type="text" placeholder="Travel, Home, Tech" required></label>
+          <label><span>SKU / product code</span><input name="sku" type="text" placeholder="AXV-TR-001" required></label>
+          <label><span>Status</span><select name="status"><option value="Active">Active</option><option value="Draft">Draft</option><option value="Out of Stock">Out of Stock</option></select></label>
+          <label><span>Price</span><input name="price" type="number" min="0" step="0.01" placeholder="2499" required></label>
+          <label><span>Cost price</span><input name="costPrice" type="number" min="0" step="0.01" placeholder="1450" required></label>
+          <label><span>Units sold</span><input name="unitsSold" type="number" min="0" step="1" placeholder="120" required></label>
+          <label><span>Stock left</span><input name="stock" type="number" min="0" step="1" placeholder="45" required></label>
+          <label><span>Image URL</span><input name="image" type="url" placeholder="https://example.com/product-image.jpg"></label>
+          <label><span>Upload image</span><input name="imageFile" type="file" accept="image/*"></label>
+          <label><span>Weekly sales</span><input name="weeklySales" type="number" min="0" step="0.01" placeholder="28000"></label>
+          <label><span>Monthly sales</span><input name="monthlySales" type="number" min="0" step="0.01" placeholder="95000"></label>
+          <label><span>Yearly sales</span><input name="yearlySales" type="number" min="0" step="0.01" placeholder="1100000"></label>
+          <label class="checkbox-field"><input name="featured" type="checkbox"><span>Feature this product on admin overview</span></label>
+          <label class="wide"><span>Description</span><textarea name="description" rows="4" placeholder="Add full product information, specifications, and selling points." required></textarea></label>
+          <p class="form-note wide" id="productStatus" aria-live="polite"></p>
+          <button type="submit" class="primary-button">Add Product</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <p class="panel-label">Inventory Overview</p>
+            <h2>Your product list</h2>
+          </div>
+        </div>
+        <div class="product-grid" id="productList"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

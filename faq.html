@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ | Aexora Ventures</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-page="faq">
+  <div class="site-shell simple-page-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html"><span class="brand-mark">AV</span><span class="brand-text">Aexora Ventures</span></a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">Menu</button>
+      <nav class="nav"><a href="shop.html">Shop</a><a href="about.html">About</a><a href="founder.html">Founder</a><a href="contact.html">Contact</a></nav>
+      <div class="toolbar"><button class="icon-button" type="button" data-theme-toggle>◐</button><button class="icon-button cart-button" type="button" data-cart-open>Cart <span class="cart-count" data-cart-count>0</span></button></div>
+    </header>
+    <main class="section page-stack policy-page">
+      <div class="page-hero"><p class="eyebrow">Help center</p><h1>Frequently asked questions</h1></div>
+      <details class="faq-item" open><summary>How long does shipping take?</summary><p>Core orders are dispatched within 48 hours and typically delivered within 3 to 7 business days depending on destination.</p></details>
+      <details class="faq-item"><summary>Do you offer returns?</summary><p>Yes. Eligible products can be returned within 7 days of delivery in original condition.</p></details>
+      <details class="faq-item"><summary>How secure is checkout?</summary><p>The site structure is ready for SSL-secured, PCI-conscious payment integrations such as Stripe, Razorpay, or PayPal.</p></details>
+      <details class="faq-item"><summary>Can the store support future languages and regions?</summary><p>Yes. The codebase is structured to support multilingual content, region-aware pricing, and scalable backend integrations.</p></details>
+    </main>
+    <footer class="footer"><div><h3>Aexora Ventures</h3><p>Clarity and trust at every step.</p></div><div class="footer-links"><a href="shipping.html">Shipping & Returns</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms & Conditions</a></div></footer>
+  </div>
+  <aside class="cart-drawer" data-cart-drawer aria-hidden="true"><div class="cart-drawer-header"><h2>Your Cart</h2><button type="button" class="icon-button" data-cart-close>Close</button></div><div class="cart-items" data-cart-items></div><div class="checkout-box"><div class="price-row"><span>Subtotal</span><strong data-cart-subtotal>$0</strong></div><button class="button button-primary checkout-trigger" type="button" data-checkout-open>1-Page Checkout</button></div></aside>
+  <div class="overlay" data-overlay></div>
+  <section class="checkout-modal" data-checkout-modal aria-hidden="true"><div class="checkout-card"><div class="cart-drawer-header"><h2>Express Checkout</h2><button type="button" class="icon-button" data-checkout-close>Close</button></div><form class="checkout-form" data-checkout-form><label>Full Name<input type="text" name="name" required></label><label>Email<input type="email" name="email" required></label><label>Address<input type="text" name="address" required></label><label>Payment Method<select name="payment"><option>Credit / Debit Card</option><option>UPI</option><option>PayPal</option></select></label><button class="button button-primary" type="submit">Complete Purchase</button></form></div></section>
+  <script src="assets/app.js"></script>
+</body>
+</html>

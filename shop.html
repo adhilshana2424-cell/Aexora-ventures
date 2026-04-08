@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shop the Aexora Ventures collection of premium, affordable luxury essentials.">
+  <title>Shop | Aexora Ventures</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    .shop-shell {
+      display: grid;
+      gap: 1.4rem;
+    }
+
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .shop-card,
+    .shop-empty {
+      border-radius: 28px;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(244, 238, 228, 0.92));
+      border: 1px solid rgba(139, 90, 43, 0.12);
+      box-shadow: 0 18px 42px rgba(21, 16, 8, 0.08);
+    }
+
+    .shop-card-media {
+      position: relative;
+      padding: 0.9rem 0.9rem 0;
+    }
+
+    .shop-card-media img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 22px;
+      display: block;
+      background: #efe8da;
+    }
+
+    .shop-card-body {
+      display: grid;
+      gap: 0.9rem;
+      padding: 1rem 1rem 1.1rem;
+    }
+
+    .shop-card-head {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .shop-card h3 {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+
+    .shop-price {
+      white-space: nowrap;
+      font-weight: 800;
+      color: #8b5a2b;
+      font-size: 1rem;
+    }
+
+    .shop-description {
+      margin: 0;
+      color: #666052;
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .shop-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+
+    .shop-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.48rem 0.82rem;
+      border-radius: 999px;
+      background: rgba(139, 90, 43, 0.08);
+      color: #8b5a2b;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .shop-pay-button {
+      border: 0;
+      border-radius: 999px;
+      padding: 0.95rem 1.15rem;
+      font-weight: 800;
+      cursor: pointer;
+      background: linear-gradient(135deg, #1b1b1b, #000000);
+      color: #fff;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+    }
+
+    .shop-empty {
+      padding: 1.4rem;
+      text-align: center;
+      color: #666052;
+    }
+
+    .payment-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 16, 10, 0.55);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      z-index: 100;
+    }
+
+    .payment-overlay.open {
+      display: flex;
+    }
+
+    .payment-modal {
+      width: min(620px, 100%);
+      background: linear-gradient(180deg, #fffdf8, #f6efe3);
+      border-radius: 32px;
+      padding: 1.7rem;
+      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.18);
+      border: 1px solid rgba(139, 90, 43, 0.12);
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .payment-modal h2,
+    .payment-modal h3 {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+    }
+
+    .payment-modal p {
+      margin: 0;
+      color: #666052;
+      line-height: 1.7;
+    }
+
+    .payment-grid {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 1.35rem;
+      align-items: start;
+    }
+
+    .qr-panel {
+      padding: 1rem;
+      border-radius: 26px;
+      background: linear-gradient(180deg, #ffffff, #faf5ec);
+      border: 1px solid rgba(139, 90, 43, 0.14);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.07);
+      text-align: center;
+    }
+
+    .qr-panel img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 18px;
+      background: #f3eee4;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .qr-caption {
+      margin-top: 0.85rem;
+      color: #8b5a2b;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .payment-fields {
+      display: grid;
+      gap: 0.95rem;
+      align-content: start;
+    }
+
+    .payment-fields input,
+    .payment-fields textarea {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border-radius: 16px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      font: inherit;
+      background: rgba(255, 255, 255, 0.88);
+    }
+
+    .payment-fields input:focus,
+    .payment-fields textarea:focus {
+      outline: none;
+      border-color: rgba(139, 90, 43, 0.36);
+      box-shadow: 0 0 0 4px rgba(139, 90, 43, 0.08);
+    }
+
+    .payment-label {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .payment-label span {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #6e6557;
+    }
+
+    .payment-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: flex-end;
+    }
+
+    .payment-button,
+    .payment-button-secondary {
+      border: 0;
+      border-radius: 999px;
+      padding: 0.9rem 1.2rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .payment-button {
+      background: #111;
+      color: #fff;
+    }
+
+    .payment-button-secondary {
+      background: rgba(0, 0, 0, 0.06);
+      color: #111;
+    }
+
+    .payment-total {
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: #8b5a2b;
+    }
+
+    .payment-mini-note {
+      padding: 0.9rem 1rem;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.66);
+      border: 1px solid rgba(139, 90, 43, 0.08);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 720px) {
+      .shop-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .payment-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body data-page="shop" onload="loadProducts()">
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">AV</span>
+        <span class="brand-text">Aexora Ventures</span>
+      </a>
+
+      <button class="nav-toggle" type="button">Menu</button>
+
+      <nav class="nav">
+        <a href="shop.html" aria-current="page">Shop</a>
+        <a href="about.html">About</a>
+        <a href="founder.html">Founder</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="toolbar">
+        <button class="icon-button">?</button>
+        <button class="icon-button">Cart</button>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="page-hero shop-shell">
+        <p class="eyebrow">Collection</p>
+        <h1>Our Products</h1>
+        <p>Explore premium essentials crafted for modern living</p>
+      </div>
+
+      <div id="products" class="shop-grid"></div>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <h3>Aexora Ventures</h3>
+        <p>Luxury with clarity, built for lasting customer trust.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="faq.html">FAQ</a>
+        <a href="shipping.html">Shipping & Returns</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+      </div>
+    </footer>
+  </div>
+
+  <div class="payment-overlay" id="paymentOverlay">
+    <div class="payment-modal">
+      <div>
+        <h2>Complete Payment</h2>
+        <p>Scan the GPay QR below, make the payment, then confirm it here.</p>
+      </div>
+      <div class="payment-grid">
+        <div class="qr-panel">
+          <img src="assets/gpay-qr.jpeg" alt="GPay QR code">
+          <div class="qr-caption">Scan To Pay</div>
+        </div>
+        <div class="payment-fields">
+          <div>
+            <h3 id="paymentProductName">Selected product</h3>
+            <p class="payment-total" id="paymentAmount">Rs. 0</p>
+          </div>
+          <label class="payment-label">
+            <span>Customer Name</span>
+            <input id="customerName" type="text" placeholder="Customer name">
+          </label>
+          <label class="payment-label">
+            <span>Customer Email</span>
+            <input id="customerEmail" type="email" placeholder="Customer email">
+          </label>
+          <label class="payment-label">
+            <span>Delivery Address</span>
+            <textarea id="customerAddress" rows="3" placeholder="Delivery address"></textarea>
+          </label>
+          <label class="payment-label">
+            <span>Payment Reference</span>
+            <input id="transactionRef" type="text" placeholder="GPay reference / UTR number (optional)">
+          </label>
+          <p class="payment-mini-note">Scan the QR, complete the payment in GPay, then click <strong>I Have Paid</strong> to submit your order.</p>
+        </div>
+      </div>
+      <div class="payment-actions">
+        <button class="payment-button-secondary" type="button" onclick="closePaymentModal()">Cancel</button>
+        <button class="payment-button" type="button" onclick="confirmQrPayment()">I Have Paid</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API_BASE = window.location.hostname === "localhost"
+      ? "http://localhost:3000/api"
+      : "https://api.aexoraventures.in/api";
+    const PUBLIC_PRODUCTS_KEY = "aexora-public-products";
+    const ORDERS_KEY = "aexora-orders";
+    let activeProductId = "";
+    let activeProducts = [];
+
+    async function loadProducts() {
+      const container = document.getElementById("products");
+      let products = [];
+
+      try {
+        products = await fetchJson(`${API_BASE}/products`);
+        localStorage.setItem(PUBLIC_PRODUCTS_KEY, JSON.stringify(products));
+      } catch {
+        products = loadLocalProducts();
+      }
+
+      activeProducts = products;
+      container.innerHTML = "";
+
+      if (!products.length) {
+        container.innerHTML = '<div class="shop-empty">Products will appear here when you add them from the admin dashboard.</div>';
+        return;
+      }
+
+      products.forEach((product) => {
+        container.innerHTML += `
+          <article class="shop-card">
+            <div class="shop-card-media">
+              <img src="${escapeHtml(product.image || "")}" alt="${escapeHtml(product.name || "Product")}">
+            </div>
+            <div class="shop-card-body">
+              <div class="shop-card-head">
+                <h3>${escapeHtml(product.name || "Untitled Product")}</h3>
+                <span class="shop-price">Rs. ${Number(product.price || 0).toFixed(0)}</span>
+              </div>
+              <div class="shop-meta">
+                <span class="shop-chip">${escapeHtml(product.category || "Collection")}</span>
+                <span class="shop-chip">${Number(product.stock || 0)} in stock</span>
+              </div>
+              <p class="shop-description">${escapeHtml(product.description || "Premium product from Aexora Ventures.")}</p>
+              <button class="shop-pay-button" onclick="openPaymentModal('${escapeHtml(product.id)}')">
+                Pay With GPay QR
+              </button>
+            </div>
+          </article>
+        `;
+      });
+    }
+
+    function openPaymentModal(productId) {
+      const product = activeProducts.find((item) => String(item.id) === String(productId));
+      if (!product) {
+        alert("Product not found.");
+        return;
+      }
+      if (Number(product.stock || 0) <= 0) {
+        alert("This product is out of stock.");
+        return;
+      }
+
+      activeProductId = productId;
+      document.getElementById("paymentProductName").textContent = product.name || "Selected product";
+      document.getElementById("paymentAmount").textContent = `Rs. ${Number(product.price || 0).toFixed(0)}`;
+      document.getElementById("paymentOverlay").classList.add("open");
+    }
+
+    function closePaymentModal() {
+      document.getElementById("paymentOverlay").classList.remove("open");
+      activeProductId = "";
+    }
+
+    async function confirmQrPayment() {
+      if (!activeProductId) return;
+
+      const customerName = document.getElementById("customerName").value.trim();
+      const customerEmail = document.getElementById("customerEmail").value.trim();
+      const customerAddress = document.getElementById("customerAddress").value.trim();
+      const transactionRef = document.getElementById("transactionRef").value.trim();
+
+      if (!customerName || !customerEmail || !customerAddress) {
+        alert("Please fill customer name, email, and address.");
+        return;
+      }
+
+      try {
+        const result = await fetchJson(`${API_BASE}/checkout`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            productId: activeProductId,
+            customerName,
+            customerEmail,
+            customerAddress,
+            transactionRef,
+            paymentMethod: "GPay QR",
+            paymentStatus: "Paid"
+          })
+        });
+
+        await syncLocalMirror();
+        closePaymentModal();
+        resetPaymentFields();
+        alert(result.message || "Payment successful.");
+        loadProducts();
+      } catch (error) {
+        alert("Payment recording failed. Make sure the backend server is running.");
+      }
+    }
+
+    async function syncLocalMirror() {
+      try {
+        const [products, orders] = await Promise.all([
+          fetchJson(`${API_BASE}/products`),
+          fetchJson(`${API_BASE}/orders`)
+        ]);
+        localStorage.setItem(PUBLIC_PRODUCTS_KEY, JSON.stringify(products));
+        localStorage.setItem(ORDERS_KEY, JSON.stringify(orders));
+      } catch {
+      }
+    }
+
+    function resetPaymentFields() {
+      document.getElementById("customerName").value = "";
+      document.getElementById("customerEmail").value = "";
+      document.getElementById("customerAddress").value = "";
+      document.getElementById("transactionRef").value = "";
+    }
+
+    function loadLocalProducts() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(PUBLIC_PRODUCTS_KEY));
+        return Array.isArray(saved) ? saved : [];
+      } catch {
+        return [];
+      }
+    }
+
+    async function fetchJson(url, options) {
+      const response = await fetch(url, options);
+      if (!response.ok) {
+        throw new Error(`Request failed: ${response.status}`);
+      }
+      return response.json();
+    }
+
+    function escapeHtml(value) {
+      return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+  </script>
+</body>
+</html>

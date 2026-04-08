@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="title desc">
+  <title id="title">GPay QR Placeholder</title>
+  <desc id="desc">Replace this placeholder with your actual Google Pay QR code.</desc>
+  <rect width="640" height="640" rx="48" fill="#f7f1e6"/>
+  <rect x="60" y="60" width="520" height="520" rx="32" fill="#ffffff" stroke="#d9c6a5" stroke-width="12"/>
+  <g fill="#111111">
+    <rect x="110" y="110" width="120" height="120" rx="16"/>
+    <rect x="410" y="110" width="120" height="120" rx="16"/>
+    <rect x="110" y="410" width="120" height="120" rx="16"/>
+    <rect x="145" y="145" width="50" height="50" rx="8" fill="#ffffff"/>
+    <rect x="445" y="145" width="50" height="50" rx="8" fill="#ffffff"/>
+    <rect x="145" y="445" width="50" height="50" rx="8" fill="#ffffff"/>
+    <rect x="280" y="120" width="30" height="30" rx="6"/>
+    <rect x="320" y="120" width="30" height="30" rx="6"/>
+    <rect x="280" y="160" width="30" height="30" rx="6"/>
+    <rect x="320" y="200" width="30" height="30" rx="6"/>
+    <rect x="260" y="260" width="40" height="40" rx="8"/>
+    <rect x="315" y="260" width="40" height="40" rx="8"/>
+    <rect x="370" y="260" width="40" height="40" rx="8"/>
+    <rect x="260" y="315" width="40" height="40" rx="8"/>
+    <rect x="370" y="315" width="40" height="40" rx="8"/>
+    <rect x="260" y="370" width="40" height="40" rx="8"/>
+    <rect x="315" y="370" width="40" height="40" rx="8"/>
+    <rect x="430" y="300" width="30" height="30" rx="6"/>
+    <rect x="470" y="340" width="30" height="30" rx="6"/>
+    <rect x="430" y="380" width="30" height="30" rx="6"/>
+    <rect x="300" y="460" width="30" height="30" rx="6"/>
+    <rect x="340" y="500" width="30" height="30" rx="6"/>
+  </g>
+  <text x="320" y="590" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="28" fill="#8b5a2b">
+    Replace with your real GPay QR
+  </text>
+</svg>
