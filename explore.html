@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore premium collections and curated categories from Aexora Ventures.">
+  <title>Explore | Aexora Ventures</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    .explore-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .explore-card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .explore-card .product-visual {
+      margin-bottom: 18px;
+    }
+
+    @media (max-width: 980px) {
+      .explore-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body data-page="explore">
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html"><span class="brand-mark">AV</span><span class="brand-text">Aexora Ventures</span></a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">Menu</button>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="explore.html" aria-current="page">Explore</a>
+        <a href="founder.html">Founder</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main class="section page-stack">
+      <section class="page-hero">
+        <p class="eyebrow">Explore the collection</p>
+        <h1>Curated product worlds with a premium edge.</h1>
+        <p class="lead">This page presents collection ideas in a clean, modern layout so visitors can discover categories with clarity and confidence.</p>
+      </section>
+
+      <section>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Collections</p>
+            <h2>Featured categories</h2>
+          </div>
+          <a class="inline-link" href="contact.html">Request assistance</a>
+        </div>
+
+        <div class="explore-grid">
+          <article class="explore-card">
+            <div class="product-visual" aria-hidden="true"></div>
+            <span class="product-category">Home & Kitchen</span>
+            <h3>Signature Living</h3>
+            <p>Refined pieces for calm interiors, daily rituals, and elevated storage.</p>
+          </article>
+
+          <article class="explore-card">
+            <div class="product-visual" aria-hidden="true"></div>
+            <span class="product-category">Outdoor</span>
+            <h3>Open Air Edit</h3>
+            <p>Utility-led designs built for movement, leisure, and premium everyday use.</p>
+          </article>
+
+          <article class="explore-card">
+            <div class="product-visual" aria-hidden="true"></div>
+            <span class="product-category">Travel & Tech</span>
+            <h3>Smart Carry</h3>
+            <p>Portable essentials that balance function, portability, and modern style.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer"><div><h3>Aexora Ventures</h3><p>Designed to make discovery feel effortless.</p></div><div class="footer-links"><a href="faq.html">FAQ</a><a href="shipping.html">Shipping & Returns</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms & Conditions</a></div></footer>
+  </div>
+  <script src="assets/app.js"></script>
+</body>
+</html>

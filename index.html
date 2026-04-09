@@ -1,705 +1,129 @@
-﻿<!-- update -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aexora Ventures</title>
-  <meta name="description" content="Aexora Ventures crafts refined essentials for modern living across home, kitchen, outdoor, travel, and tech.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+  <title>Aexora Ventures | Luxury Reimagined</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
+
   <style>
-    :root {
-      --ivory: #f8f5ef;
-      --white: #ffffff;
-      --sand: #ebe3d3;
-      --gold: #c9a96b;
-      --gold-deep: #9f7b3d;
-      --ink: #161616;
-      --muted: #666052;
-      --shadow: 0 24px 80px rgba(36, 27, 10, 0.12);
-      --radius-lg: 32px;
-      --radius-md: 24px;
-      --radius-sm: 999px;
-      --container: min(1160px, calc(100vw - 2rem));
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
+      background: #050505;
+      color: #f7f2e8;
       font-family: "Manrope", sans-serif;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at top left, rgba(201, 169, 107, 0.18), transparent 28%),
-        radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.9), transparent 24%),
-        linear-gradient(180deg, #fffdf8 0%, var(--ivory) 42%, #f4f0e7 100%);
-      overflow-x: hidden;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image: linear-gradient(rgba(255, 255, 255, 0.22) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.18) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.16), transparent 75%);
-      opacity: 0.25;
+    .container {
+      width: 90%;
+      margin: auto;
     }
 
-    a { color: inherit; text-decoration: none; }
-    .container { width: var(--container); margin: 0 auto; }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(20px);
-      background: rgba(248, 245, 239, 0.68);
-      border-bottom: 1px solid rgba(22, 22, 22, 0.05);
-    }
-
-    .nav {
+    header {
+      padding: 20px 0;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: flex-start;
-      min-height: 76px;
-      gap: 1rem;
-      position: relative;
     }
 
     .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
       font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 0.84rem;
     }
 
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border-radius: 14px;
-      border: 1px solid rgba(201, 169, 107, 0.36);
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(201, 169, 107, 0.14));
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
-      color: var(--gold-deep);
-      font-family: "Cormorant Garamond", serif;
-      font-size: 1.4rem;
+    nav a {
+      margin-left: 20px;
+      color: #aaa;
+      text-decoration: none;
     }
 
-    .hero { padding: 5.5rem 0 4rem; }
-
-    .hero-shell {
-      position: relative;
-      overflow: hidden;
-      padding: clamp(2rem, 5vw, 4rem);
-      border-radius: calc(var(--radius-lg) + 8px);
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 248, 235, 0.82)), linear-gradient(180deg, rgba(201, 169, 107, 0.08), transparent);
-      border: 1px solid rgba(201, 169, 107, 0.18);
-      box-shadow: var(--shadow);
-      isolation: isolate;
+    nav a.active {
+      color: #fff;
     }
 
-    .hero-shell::before,
-    .hero-shell::after {
-      content: "";
-      position: absolute;
-      border-radius: 999px;
-      filter: blur(8px);
-      z-index: -1;
-    }
-
-    .hero-shell::before {
-      width: 320px;
-      height: 320px;
-      right: -80px;
-      top: -40px;
-      background: radial-gradient(circle, rgba(201, 169, 107, 0.28), transparent 68%);
-    }
-
-    .hero-shell::after {
-      width: 260px;
-      height: 260px;
-      left: -60px;
-      bottom: -90px;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.92), transparent 62%);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.55rem 0.9rem;
-      border-radius: var(--radius-sm);
-      border: 1px solid rgba(201, 169, 107, 0.28);
-      background: rgba(255, 255, 255, 0.72);
-      color: var(--gold-deep);
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    h1, h2 {
-      font-family: "Cormorant Garamond", serif;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      margin: 0;
+    .hero {
+      padding: 100px 0;
+      text-align: center;
     }
 
     h1 {
-      font-size: clamp(3rem, 8vw, 6rem);
-      line-height: 0.95;
-      margin-top: 1rem;
-      max-width: 10ch;
-    }
-
-    .hero-copy p {
-      max-width: 44rem;
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: var(--muted);
-      margin: 1.35rem 0 0;
-    }
-
-    .button-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 2rem;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 3rem;
     }
 
     .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 148px;
-      padding: 0.95rem 1.4rem;
-      border-radius: var(--radius-sm);
-      font-weight: 700;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+      padding: 12px 24px;
+      margin: 10px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
     }
 
-    .button-primary {
-      background: linear-gradient(135deg, #d5b679, var(--gold-deep));
-      color: #fffaf2;
-      box-shadow: 0 16px 32px rgba(159, 123, 61, 0.26);
+    .primary {
+      background: gold;
+      color: black;
     }
 
-    .button-secondary {
-      border: 1px solid rgba(22, 22, 22, 0.1);
-      background: rgba(255, 255, 255, 0.82);
-      color: var(--ink);
-    }
-
-    .button:hover,
-    .button:focus-visible { transform: translateY(-2px); }
-
-    .hero-card { display: grid; gap: 1rem; }
-
-    .floating-card,
-    .stat-card {
-      border-radius: var(--radius-md);
-      background: rgba(255, 255, 255, 0.84);
-      border: 1px solid rgba(22, 22, 22, 0.05);
-      box-shadow: 0 18px 48px rgba(22, 22, 22, 0.08);
-      backdrop-filter: blur(18px);
-    }
-
-    .floating-card {
-      padding: 0.5rem;
-      min-height: 0;
-      display: grid;
-      place-items: center;
+    .secondary {
       background: transparent;
-      border: 0;
-      box-shadow: none;
-      backdrop-filter: none;
-    }
-
-    .floating-card::before {
-      display: none;
-    }
-
-    .hero-symbol-wrap {
-      position: relative;
-      width: 100%;
-      display: grid;
-      place-items: center;
-    }
-
-    .hero-symbol {
-      width: min(100%, 180px);
-      display: grid;
-      place-items: center;
-      color: var(--gold-deep);
-      animation: float 7s ease-in-out infinite;
-    }
-
-    .hero-symbol svg {
-      width: 100%;
-      height: auto;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 1.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      filter: drop-shadow(0 16px 28px rgba(159, 123, 61, 0.18));
-    }
-
-    .stat-card {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      padding: 1.2rem;
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 1.35rem;
-      font-weight: 800;
-      margin-bottom: 0.25rem;
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    section { padding: 1.5rem 0 4rem; }
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 1.8rem;
-    }
-
-    .section-head p {
-      color: var(--muted);
-      max-width: 36rem;
-      line-height: 1.8;
-      margin: 0.6rem 0 0;
-    }
-
-    .about-grid,
-    .category-grid,
-    .featured-grid {
-      display: grid;
-      gap: 1.25rem;
-    }
-
-    .about-grid { grid-template-columns: 1.2fr 0.8fr; }
-
-    .panel {
-      border-radius: var(--radius-lg);
-      padding: clamp(1.4rem, 3vw, 2rem);
-      background: rgba(255, 255, 255, 0.74);
-      border: 1px solid rgba(22, 22, 22, 0.06);
-      box-shadow: 0 14px 38px rgba(22, 22, 22, 0.06);
-      backdrop-filter: blur(16px);
-    }
-
-    .mission-copy {
-      color: var(--muted);
-      line-height: 1.85;
-      font-size: 1rem;
-      max-width: 58ch;
-    }
-
-    .about-meta { display: grid; gap: 1rem; }
-
-    .meta-block {
-      padding: 1.2rem;
-      border-radius: 22px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(246, 241, 232, 0.88));
-      border: 1px solid rgba(201, 169, 107, 0.16);
-    }
-
-    .meta-block small {
-      display: block;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 0.73rem;
-      color: var(--gold-deep);
-      margin-bottom: 0.4rem;
-      font-weight: 800;
-    }
-
-    .meta-block strong {
-      font-size: 1.2rem;
-      font-weight: 800;
-    }
-
-    .category-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-
-    .category-card {
-      position: relative;
-      min-height: 230px;
-      padding: 1.35rem;
-      overflow: hidden;
-      border-radius: 28px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(244, 238, 228, 0.92));
-      border: 1px solid rgba(22, 22, 22, 0.05);
-      box-shadow: 0 14px 34px rgba(22, 22, 22, 0.06);
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-    }
-
-    .category-card::before {
-      content: "";
-      position: absolute;
-      width: 170px;
-      height: 170px;
-      right: -55px;
-      bottom: -40px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(201, 169, 107, 0.22), transparent 68%);
-    }
-
-    .category-card:hover,
-    .category-card:focus-within {
-      transform: translateY(-6px);
-      box-shadow: 0 22px 52px rgba(22, 22, 22, 0.1);
-    }
-
-    .category-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 18px;
-      display: grid;
-      place-items: center;
-      background: rgba(255, 255, 255, 0.78);
-      border: 1px solid rgba(201, 169, 107, 0.18);
-      color: var(--gold-deep);
-      font-size: 1.35rem;
-      margin-bottom: 2rem;
-    }
-
-    .category-icon svg {
-      width: 28px;
-      height: 28px;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .category-card h3 {
-      margin: 0 0 0.5rem;
-      font-size: 1.2rem;
-    }
-
-    .category-card p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 0.94rem;
-    }
-
-    .featured-grid { grid-template-columns: 1.1fr 0.9fr; }
-
-    .featured-main {
-      min-height: 320px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(245, 239, 230, 0.88)), radial-gradient(circle at right, rgba(201, 169, 107, 0.14), transparent 35%);
-    }
-
-    .featured-main p {
-      color: var(--muted);
-      max-width: 34rem;
-      line-height: 1.85;
-    }
-
-    .placeholder-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      width: fit-content;
-      padding: 0.55rem 0.9rem;
-      border-radius: var(--radius-sm);
-      background: rgba(201, 169, 107, 0.12);
-      color: var(--gold-deep);
-      font-weight: 700;
-      font-size: 0.86rem;
-    }
-
-    .footer { padding: 0 0 2.25rem; }
-
-    .footer-shell {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 1.2rem 0 0;
-      border-top: 1px solid rgba(22, 22, 22, 0.08);
-      color: var(--muted);
-      font-size: 0.92rem;
+      border: 1px solid #555;
+      color: white;
     }
 
     .reveal {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transform: translateY(30px);
+      transition: 0.6s;
     }
 
-    .reveal.is-visible {
+    .reveal.visible {
       opacity: 1;
       transform: translateY(0);
     }
-
-    .reveal-delay-1 { transition-delay: 0.08s; }
-    .reveal-delay-2 { transition-delay: 0.16s; }
-    .reveal-delay-3 { transition-delay: 0.24s; }
-    .reveal-delay-4 { transition-delay: 0.32s; }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-10px) scale(1.02); }
-    }
-
-    @media (max-width: 1080px) {
-      .hero-grid,
-      .about-grid,
-      .featured-grid { grid-template-columns: 1fr; }
-      .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-
-    @media (max-width: 760px) {
-      .site-header { background: rgba(248, 245, 239, 0.88); }
-
-      .stat-card,
-      .category-grid { grid-template-columns: 1fr; }
-
-      h1 { max-width: 12ch; }
-      .button { width: 100%; }
-
-      .footer-shell,
-      .section-head {
-        flex-direction: column;
-        align-items: start;
-      }
-    }
   </style>
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container">
-      <nav class="nav" id="nav">
-        <a class="brand" href="#top" aria-label="Aexora Ventures home">
-          <span class="brand-mark">A</span>
-          <span>Aexora Ventures</span>
-        </a>
-      </nav>
-    </div>
-  </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container">
-        <div class="hero-shell reveal is-visible">
-          <div class="hero-grid">
-            <div class="hero-copy">
-              <div class="eyebrow">Curated Luxury Essentials</div>
-              <h1>Designed for a quieter kind of excellence.</h1>
-              <p>
-                Aexora Ventures creates elevated everyday experiences through refined collections for home,
-                kitchen, outdoor, travel, and technology. Minimal form. Premium finish. Timeless intent.
-              </p>
-              <div class="button-row">
-                <a class="button button-primary" href="#categories">Shop Now</a>
-                <a class="button button-secondary" href="#about">Explore</a>
-              </div>
-            </div>
-            <div class="hero-card">
-              <div class="floating-card reveal reveal-delay-1">
-                <div class="hero-symbol-wrap" aria-hidden="true">
-                  <div class="hero-symbol">
-                    <svg viewBox="0 0 120 120">
-                      <path d="M20 55 60 24l40 31"></path>
-                      <path d="M30 51v45h60V51"></path>
-                      <path d="M47 96V66h26v30"></path>
-                      <path d="M42 40h36"></path>
-                      <path d="M88 35c5 0 9 4 9 9"></path>
-                      <path d="M23 84c0 7 5 12 12 12"></path>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div class="stat-card reveal reveal-delay-2">
-                <div class="stat">
-                  <strong>5</strong>
-                  <span>Signature categories</span>
-                </div>
-                <div class="stat">
-                  <strong>2026</strong>
-                  <span>Founded with intent</span>
-                </div>
-                <div class="stat">
-                  <strong>Premium</strong>
-                  <span>Modern lifestyle focus</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<header class="container">
+  <div class="brand">AEXORA VENTURES</div>
+  <nav>
+    <a href="#home" class="active">Home</a>
+    <a href="#explore">Explore</a>
+    <a href="#shop">Shop</a>
+    <a href="#founder">Founder</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-    <section id="about">
-      <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <div class="eyebrow">About The Company</div>
-            <h2>Built to make everyday living feel exceptional.</h2>
-          </div>
-          <p>
-            Every detail at Aexora Ventures is shaped around quality, restraint, and usefulness. The result is a brand
-            language that feels warm, modern, and intentionally premium.
-          </p>
-        </div>
-        <div class="about-grid">
-          <article class="panel reveal reveal-delay-1">
-            <p class="mission-copy">
-              Founded in <strong>2026</strong>, Aexora Ventures exists to curate beautifully made products that bring
-              calm, sophistication, and practicality into modern life. Our mission is to blend elevated design with
-              lasting utility across the spaces and moments people care about most.
-            </p>
-          </article>
-          <aside class="about-meta">
-            <div class="meta-block reveal reveal-delay-2">
-              <small>Founded</small>
-              <strong>2026</strong>
-            </div>
-            <div class="meta-block reveal reveal-delay-3">
-              <small>Mission</small>
-              <strong>Luxury made quietly useful</strong>
-            </div>
-            <div class="meta-block reveal reveal-delay-4">
-              <small>Approach</small>
-              <strong>Minimal design, lasting quality</strong>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
+<section class="hero reveal" id="home">
+  <div class="container">
+    <h1>Luxury made modern, clean, and timeless.</h1>
+    <p>
+      Aexora Ventures curates elevated essentials for modern living.
+    </p>
 
-    <section id="categories">
-      <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <div class="eyebrow">Product Categories</div>
-            <h2>Collections designed around the way people live now.</h2>
-          </div>
-          <p>
-            Explore a premium range of essentials crafted for comfort, movement, performance, and beautifully considered spaces.
-          </p>
-        </div>
-        <div class="category-grid">
-          <article class="category-card reveal reveal-delay-1">
-            <div class="category-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M4.5 10.5 12 4l7.5 6.5"></path>
-                <path d="M6.5 9.5V20h11V9.5"></path>
-                <path d="M10 20v-5h4v5"></path>
-              </svg>
-            </div>
-            <h3>Home</h3>
-            <p>Soft textures, refined decor, and elevated everyday pieces for modern interiors.</p>
-          </article>
-          <article class="category-card reveal reveal-delay-2">
-            <div class="category-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M7 4v16"></path>
-                <path d="M11 4v8"></path>
-                <path d="M15 4v16"></path>
-                <path d="M11 12c0 2.2-1.8 4-4 4"></path>
-                <path d="M15 4c2.4 1.8 3.5 4.2 3.5 7.5S17.4 17.2 15 19"></path>
-              </svg>
-            </div>
-            <h3>Kitchen</h3>
-            <p>Beautiful tools and intelligent essentials that simplify daily rituals with style.</p>
-          </article>
-          <article class="category-card reveal reveal-delay-3">
-            <div class="category-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M5 19 12 6l7 13"></path>
-                <path d="M8.5 13.5h7"></path>
-                <path d="M3 19h18"></path>
-              </svg>
-            </div>
-            <h3>Outdoor</h3>
-            <p>Durable pieces designed for open-air comfort, movement, and elegant utility.</p>
-          </article>
-          <article class="category-card reveal reveal-delay-4">
-            <div class="category-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <rect x="5" y="7" width="14" height="12" rx="2"></rect>
-                <path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7"></path>
-                <path d="M5 12h14"></path>
-              </svg>
-            </div>
-            <h3>Travel</h3>
-            <p>Streamlined companions built to move lightly, organize beautifully, and last.</p>
-          </article>
-          <article class="category-card reveal">
-            <div class="category-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <rect x="4" y="5" width="16" height="12" rx="2"></rect>
-                <path d="M9 19h6"></path>
-                <path d="M12 17v2"></path>
-                <path d="M8 9h8"></path>
-              </svg>
-            </div>
-            <h3>Tech</h3>
-            <p>Clean-lined accessories and smart devices that fit seamlessly into premium lifestyles.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
+    <button class="button primary">Explore</button>
+    <button class="button secondary">Shop Now</button>
+  </div>
+</section>
 
-  <footer class="footer" id="contact">
-    <div class="container">
-      <div class="footer-shell">
-        <span>Aexora Ventures</span>
-        <span>Founded in 2026. Ivory tones, refined detail, and modern essentials.</span>
-      </div>
-    </div>
-  </footer>
+<script>
+  // Reveal animation
+  const reveals = document.querySelectorAll(".reveal");
 
-    <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.18 });
+  function showOnScroll() {
+    reveals.forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      if (top < window.innerHeight - 50) {
+        el.classList.add("visible");
+      }
+    });
+  }
 
-    document.querySelectorAll(".reveal:not(.is-visible)").forEach((element) => observer.observe(element));
-  </script>
+  window.addEventListener("scroll", showOnScroll);
+  showOnScroll();
+</script>
+
 </body>
 </html>
-
-
-
