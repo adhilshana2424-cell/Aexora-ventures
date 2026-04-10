@@ -18,9 +18,12 @@
   }
 
   .brand-mark {
+    display: grid;
+    place-items: center;
     width: 50px;
     height: 50px;
     min-width: 50px;
+    border-radius: 50%;
     font-size: 1rem;
   }
 
@@ -33,16 +36,18 @@
 
   .nav-toggle {
     display: inline-flex;
-    width: 85px;
-    height: 48px;
     justify-content: center;
     align-items: center;
+    width: 85px;
+    height: 48px;
     border-radius: 25px;
     flex-shrink: 0;
   }
 
   .toolbar {
     margin-left: 0;
+    width: 100%;
+    justify-content: flex-end;
   }
 
   .nav {
@@ -66,8 +71,17 @@
     text-align: left;
   }
 
-  .founder-hero {
+  .hero,
+  .story-band,
+  .shop-layout,
+  .product-layout,
+  .contact-layout,
+  .founder-hero,
+  .quote-band {
     grid-template-columns: 1fr;
+  }
+
+  .founder-hero {
     text-align: center;
   }
 
