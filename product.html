@@ -2,50 +2,97 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="Discover premium Aexora Ventures products with refined details, trusted quality, and elevated utility.">
   <title>Product | Aexora Ventures</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="./assets/styles.css">
 </head>
-<body data-page="no product yet ">
-          ...
-         </div>
+<body data-page="product">
   <div class="site-shell">
-    <style>
-    [data product - details], 
-    [data related products ] {
-        display: none;
-    }
-    </style>
-<header class="no">
+    <header class="topbar">
       <a class="brand" href="index.html"><span class="brand-mark">AV</span><span class="brand-text">Aexora Ventures</span></a>
       <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">Menu</button>
-      <nav class="nav"><a href="shop.html">Shop</a><a href="about.html">About</a><a href="founder.html">Founder</a><a href="contact.html">Contact</a></nav>
-      <div class="toolbar"><button class="icon-button" type="button" data-theme-toggle aria-label="Toggle color mode">◐</button><button class="icon-button cart-button" type="button" data-cart-open>Cart <span class="cart-count" data-cart-count>0</span></button></div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="founder.html">Founder</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="toolbar">
+        <button class="icon-button" type="button" data-theme-toggle aria-label="Toggle theme">Theme</button>
+        <button class="icon-button cart-button" type="button" data-cart-open>Cart <span class="cart-count" data-cart-count>0</span></button>
+      </div>
     </header>
-    <main class="section">
-      <div style ="text-aligh:centre;padding:100px 
-     20px;">
 
-        <h1 style="font-size: 28px: color: 333;">
-          our products are launching soon 
-        </h1>
+    <main class="section page-stack">
+      <section class="product-layout" data-product-detail></section>
 
-        <p style="font-size: 18px ; color: grey;">
+      <section class="recommendation-band">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Related</p>
+            <h2>Customers also viewed</h2>
+          </div>
+          <a class="inline-link" href="shop.html">View full shop</a>
+        </div>
+        <div class="product-grid" data-related-products></div>
+      </section>
+    </main>
 
-          stay tuned !!
-        </p>
-
-       </div>
-      </main>
-    <footer class="footer"><div><h3>Aexora Ventures</h3><p>Enduring quality. Intelligent simplicity. Premium comfort.</p></div><div class="footer-links"><a href="faq.html">FAQ</a><a href="shipping.html">Shipping & Returns</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms & Conditions</a></div></footer>
+    <footer class="footer">
+      <div>
+        <h3>Aexora Ventures</h3>
+        <p>Enduring quality. Intelligent simplicity. Premium comfort.</p>
+      </div>
+      <div class="footer-links">
+        <a href="faq.html">FAQ</a>
+        <a href="shipping.html">Shipping & Returns</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+      </div>
+    </footer>
   </div>
-  <aside class="cart-drawer" data-cart-drawer aria-hidden="true"><div class="cart-drawer-header"><h2>Your Cart</h2><button type="button" class="icon-button" data-cart-close>Close</button></div><div class="cart-items" data-cart-items></div><div class="checkout-box"><div class="price-row"><span>Subtotal</span><strong data-cart-subtotal>$0</strong></div><button class="button button-primary checkout-trigger" type="button" data-checkout-open>1-Page Checkout</button></div></aside>
+
+  <aside class="cart-drawer" data-cart-drawer aria-hidden="true">
+    <div class="cart-drawer-header">
+      <h2>Your Cart</h2>
+      <button type="button" class="icon-button" data-cart-close>Close</button>
+    </div>
+    <div class="cart-items" data-cart-items></div>
+    <div class="checkout-box">
+      <div class="price-row"><span>Subtotal</span><strong data-cart-subtotal>$0</strong></div>
+      <button class="button button-primary checkout-trigger" type="button" data-checkout-open>1-Page Checkout</button>
+    </div>
+  </aside>
+
   <div class="overlay" data-overlay></div>
-  <section class="checkout-modal" data-checkout-modal aria-hidden="true"><div class="checkout-card"><div class="cart-drawer-header"><h2>Express Checkout</h2><button type="button" class="icon-button" data-checkout-close>Close</button></div><form class="checkout-form" data-checkout-form><label>Full Name<input type="text" name="name" required></label><label>Email<input type="email" name="email" required></label><label>Address<input type="text" name="address" required></label><label>Payment Method<select name="payment"><option>Credit / Debit Card</option><option>UPI</option><option>PayPal</option></select></label><button class="button button-primary" type="submit">Complete Purchase</button></form></div></section>
-  <script src="assets/app.js"></script>
+
+  <section class="checkout-modal" data-checkout-modal aria-hidden="true">
+    <div class="checkout-card">
+      <div class="cart-drawer-header">
+        <h2>Express Checkout</h2>
+        <button type="button" class="icon-button" data-checkout-close>Close</button>
+      </div>
+      <form class="checkout-form" data-checkout-form>
+        <label>Full Name<input type="text" name="name" required></label>
+        <label>Email<input type="email" name="email" required></label>
+        <label>Address<input type="text" name="address" required></label>
+        <label>Payment Method
+          <select name="payment">
+            <option>Credit / Debit Card</option>
+            <option>UPI</option>
+            <option>PayPal</option>
+          </select>
+        </label>
+        <button class="button button-primary" type="submit">Complete Purchase</button>
+      </form>
+    </div>
+  </section>
+
+  <script src="./assets/app.js" defer></script>
 </body>
 </html>

@@ -2,128 +2,131 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aexora Ventures | Luxury Reimagined</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
-
-  <style>
-    body {
-      margin: 0;
-      background: #050505;
-      color: #f7f2e8;
-      font-family: "Manrope", sans-serif;
-    }
-
-    .container {
-      width: 90%;
-      margin: auto;
-    }
-
-    header {
-      padding: 20px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .brand {
-      font-weight: 800;
-    }
-
-    nav a {
-      margin-left: 20px;
-      color: #aaa;
-      text-decoration: none;
-    }
-
-    nav a.active {
-      color: #fff;
-    }
-
-    .hero {
-      padding: 100px 0;
-      text-align: center;
-    }
-
-    h1 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 3rem;
-    }
-
-    .button {
-      padding: 12px 24px;
-      margin: 10px;
-      border-radius: 30px;
-      border: none;
-      cursor: pointer;
-    }
-
-    .primary {
-      background: gold;
-      color: black;
-    }
-
-    .secondary {
-      background: transparent;
-      border: 1px solid #555;
-      color: white;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: 0.6s;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Aexora Ventures crafts premium everyday essentials with timeless design and practical luxury.">
+  <title>Aexora Ventures</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/styles.css">
 </head>
+<body data-page="home">
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html"><span class="brand-mark">AV</span><span class="brand-text">Aexora Ventures</span></a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">Menu</button>
+      <nav class="nav">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+        <a href="explore.html">Explore</a>
+        <a href="founder.html">Founder</a>
+        <a href="contact.html">Contact</a>
+        <a href="shop.html">Shop</a>
+      </nav>
+      <div class="toolbar">
+        <button class="icon-button" type="button" data-theme-toggle aria-label="Toggle theme">Theme</button>
+        <button class="icon-button cart-button" type="button" data-cart-open>Cart <span class="cart-count" data-cart-count>0</span></button>
+      </div>
+    </header>
 
-<body>
+    <main class="section page-stack">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Refined Living</p>
+          <h1>Let every corner of home feel calm, warm, and beautifully considered.</h1>
+          <p class="lead">A more minimal welcome, shaped around timeless comfort and quiet luxury for the home and kitchen.</p>
+          <div class="hero-actions">
+            <a class="button button-primary explore-button" href="shop.html">
+              <span class="explore-icon" aria-hidden="true">-></span>
+              <span>Explore Products</span>
+            </a>
+            <a class="button button-secondary" href="about.html">Our Story</a>
+          </div>
+        </div>
+        <div class="hero-showcase">
+          <article class="hero-card hero-card-main glass-panel quote-panel">
+            <p class="card-label">Signature Mood</p>
+            <h2>"A beautiful home is not filled with things, but with feeling."</h2>
+            <p>Soft light, quiet details, and graceful utility create a space that feels deeply lived in and deeply loved.</p>
+          </article>
+          <article class="hero-card hero-card-accent glass-panel quote-panel">
+            <p class="card-label">Kitchen Quote</p>
+            <p>"Luxury in the kitchen is found in simplicity, warmth, and the rituals we return to every day."</p>
+          </article>
+        </div>
+      </section>
 
-<header class="container">
-  <div class="brand">AEXORA VENTURES</div>
-  <nav>
-    <a href="#home" class="active">Home</a>
-    <a href="#explore">Explore</a>
-    <a href="#shop">Shop</a>
-    <a href="#founder">Founder</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+      <section class="quote-band glass-panel">
+        <div>
+          <p class="eyebrow">Home Notes</p>
+          <h2>Luxury lives in atmosphere.</h2>
+        </div>
+        <div class="quote-stack">
+          <blockquote>"The kitchen is the heart of the home, and elegance begins with how it feels."</blockquote>
+          <blockquote>"True richness is a home that welcomes you softly at the end of every day."</blockquote>
+          <blockquote>"Beautiful spaces are composed with restraint, intention, and warmth."</blockquote>
+        </div>
+      </section>
 
-<section class="hero reveal" id="home">
-  <div class="container">
-    <h1>Luxury made modern, clean, and timeless.</h1>
-    <p>
-      Aexora Ventures curates elevated essentials for modern living.
-    </p>
+      <section class="story-band">
+        <div>
+          <p class="eyebrow">Brand Promise</p>
+          <h2>Luxury should feel serene, useful, and naturally inviting.</h2>
+        </div>
+        <p>The homepage now stays intentionally calm and editorial, letting the atmosphere speak first while the explore action guides visitors to the full products page.</p>
+      </section>
+    </main>
 
-    <button class="button primary">Explore</button>
-    <button class="button secondary">Shop Now</button>
+    <footer class="footer">
+      <div>
+        <h3>Aexora Ventures</h3>
+        <p>Timeless premium living, built with care and conviction.</p>
+      </div>
+      <div class="footer-links">
+        <a href="faq.html">FAQ</a>
+        <a href="shipping.html">Shipping & Returns</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+      </div>
+    </footer>
   </div>
-</section>
 
-<script>
-  // Reveal animation
-  const reveals = document.querySelectorAll(".reveal");
+  <aside class="cart-drawer" data-cart-drawer aria-hidden="true">
+    <div class="cart-drawer-header">
+      <h2>Your Cart</h2>
+      <button type="button" class="icon-button" data-cart-close>Close</button>
+    </div>
+    <div class="cart-items" data-cart-items></div>
+    <div class="checkout-box">
+      <div class="price-row"><span>Subtotal</span><strong data-cart-subtotal>$0</strong></div>
+      <button class="button button-primary checkout-trigger" type="button" data-checkout-open>1-Page Checkout</button>
+    </div>
+  </aside>
 
-  function showOnScroll() {
-    reveals.forEach(el => {
-      const top = el.getBoundingClientRect().top;
-      if (top < window.innerHeight - 50) {
-        el.classList.add("visible");
-      }
-    });
-  }
+  <div class="overlay" data-overlay></div>
 
-  window.addEventListener("scroll", showOnScroll);
-  showOnScroll();
-</script>
+  <section class="checkout-modal" data-checkout-modal aria-hidden="true">
+    <div class="checkout-card">
+      <div class="cart-drawer-header">
+        <h2>Express Checkout</h2>
+        <button type="button" class="icon-button" data-checkout-close>Close</button>
+      </div>
+      <form class="checkout-form" data-checkout-form>
+        <label>Full Name<input type="text" name="name" required></label>
+        <label>Email<input type="email" name="email" required></label>
+        <label>Address<input type="text" name="address" required></label>
+        <label>Payment Method
+          <select name="payment">
+            <option>Credit / Debit Card</option>
+            <option>UPI</option>
+            <option>PayPal</option>
+          </select>
+        </label>
+        <button class="button button-primary" type="submit">Complete Purchase</button>
+      </form>
+    </div>
+  </section>
 
+  <script src="./assets/app.js" defer></script>
 </body>
 </html>
